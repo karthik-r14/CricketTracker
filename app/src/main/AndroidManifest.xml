@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.kr_pc.crickettracker">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    ;
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.MainActivity" />
+        <activity
+            android:name=".view.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.FeedbackActivity"
+            android:label="@string/feedback" />
+        <activity
+            android:name=".view.AboutUsActivity"
+            android:label="@string/about_us" />
+        <activity
+            android:name=".view.MyProfileActivity"
+            android:label="@string/my_profile" />
+        <activity android:name=".view.EditProfileActivity"
+            android:label="@string/edit_profile"></activity>
+    </application>
+
+</manifest>
