@@ -41,4 +41,10 @@ public class AboutUsActivity extends AppCompatActivity {
                 .transform(new CircleTransform())
                 .into(imageView);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
+    }
 }
