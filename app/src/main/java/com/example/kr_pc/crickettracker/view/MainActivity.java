@@ -35,17 +35,15 @@ public class MainActivity extends AppCompatActivity {
         myProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isUserLoggedIn()) {
+                if (isUserLoggedIn()) {
                     Intent intent = new Intent(MainActivity.this, MyProfileActivity.class);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
-                }
-                else {
+                    overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+                } else {
                     Intent intent = new Intent(MainActivity.this, EditProfileActivity.class);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
+                    overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
                 }
-
             }
         });
     }
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.feedback:
                 Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
+                overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
                 return true;
             case R.id.share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.about_us:
                 Intent aboutUsIntent = new Intent(MainActivity.this, AboutUsActivity.class);
                 startActivity(aboutUsIntent);
-                overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
+                overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
                 return true;
 
             default:

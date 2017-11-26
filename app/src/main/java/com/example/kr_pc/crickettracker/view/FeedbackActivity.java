@@ -43,6 +43,6 @@ public class FeedbackActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
+        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
     }
 }

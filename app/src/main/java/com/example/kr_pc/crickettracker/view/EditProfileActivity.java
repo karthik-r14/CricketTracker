@@ -41,6 +41,10 @@ public class EditProfileActivity extends AppCompatActivity {
         name.setText(sharedPreferences.getString(USERNAME, ""));
         phoneNumber.setText(sharedPreferences.getString(PHONE_NUMBER, ""));
         email.setText(sharedPreferences.getString(EMAIL_ID, ""));
+
+        if (!sharedPreferences.getBoolean(MainActivity.LOGGED_IN, false)) {
+            getSupportActionBar().setTitle(R.string.create_profile);
+        }
     }
 
     private void onSaveButtonClick() {
@@ -49,12 +53,12 @@ public class EditProfileActivity extends AppCompatActivity {
         String userPhoneNumber = phoneNumber.getText().toString();
         String userEmailId = email.getText().toString();
 
-        if(userName.trim().isEmpty()) {
+        if (userName.trim().isEmpty()) {
             name.setError(getString(R.string.empty_name_message));
             validFieldsFlag = false;
         }
 
-        if(userPhoneNumber.trim().isEmpty()) {
+        if (userPhoneNumber.trim().isEmpty()) {
             phoneNumber.setError(getString(R.string.empty_phone_number_message));
             validFieldsFlag = false;
         } else if (!userPhoneNumber.matches("^[2-9]{2}[0-9]{8}$")) {
@@ -62,12 +66,12 @@ public class EditProfileActivity extends AppCompatActivity {
             validFieldsFlag = false;
         }
 
-        if(userEmailId.trim().isEmpty()) {
+        if (userEmailId.trim().isEmpty()) {
             email.setError(getString(R.string.empty_email_message));
             validFieldsFlag = false;
         }
 
-        if(validFieldsFlag) {
+        if (validFieldsFlag) {
             SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.MY_PROFILE, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -84,7 +88,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
+        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
         super.onBackPressed();
     }
 }

@@ -128,4 +128,5 @@
     <string name="logout_message">Are you sure you want to logout</string>
     <string name="on_logout_message">You are logged out!</string>
     <string name="details_message">Please enter your details below.</string>
+    <string name="create_profile">Create Profile</string>
 </resources>

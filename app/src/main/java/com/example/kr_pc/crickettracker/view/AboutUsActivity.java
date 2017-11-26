@@ -28,7 +28,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
         githubHandle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view ) {
+            public void onClick(View view) {
                 Uri webpage = Uri.parse(getResources().getString(R.string.github_handle));
                 Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(intent);
@@ -45,6 +45,6 @@ public class AboutUsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.move_left_anim,R.anim.move_right_anim);
+        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
     }
 }
