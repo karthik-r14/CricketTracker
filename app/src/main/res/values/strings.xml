@@ -43,4 +43,7 @@
     <string name="refresh">Refresh</string>
     <string name="dismiss">Dismiss</string>
     <string name="not_available">Not Available</string>
+    <string name="team_1">Team 1</string>
+    <string name="vs">Vs</string>
+    <string name="team_2">Team 2</string>
 </resources>
