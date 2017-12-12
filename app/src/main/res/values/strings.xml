@@ -40,4 +40,7 @@
     <string name="on_logout_message">You are logged out!</string>
     <string name="details_message">Please enter your details below.</string>
     <string name="create_profile">Create Profile</string>
+    <string name="refresh">Refresh</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="not_available">Not Available</string>
 </resources>

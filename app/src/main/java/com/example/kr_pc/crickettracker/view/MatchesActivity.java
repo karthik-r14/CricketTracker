@@ -3,6 +3,7 @@ package com.example.kr_pc.crickettracker.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -43,18 +44,15 @@ public class MatchesActivity extends AppCompatActivity {
         matchList = new ArrayList<>();
 
         loadMatchList();
-
-        listView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadScore();
-            }
-        });
     }
 
-    private void loadScore() {
+    private void loadScore(long id) {
+        ScoreDialogFragment scoreDialogFragment = ScoreDialogFragment.newInstance();
+        scoreDialogFragment.show(getSupportFragmentManager(), ScoreDialogFragment.TAG);
 
-
+        Bundle arguments = new Bundle();
+        arguments.putLong("id", id);
+        scoreDialogFragment.setArguments(arguments);
     }
 
     private void loadMatchList() {
@@ -117,5 +115,12 @@ public class MatchesActivity extends AppCompatActivity {
 
         //adding the string request to request queue
         requestQueue.add(stringRequest);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                loadScore(matchList.get(i).getId());
+            }
+        });
     }
 }
