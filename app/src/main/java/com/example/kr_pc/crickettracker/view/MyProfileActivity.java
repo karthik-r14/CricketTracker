@@ -80,6 +80,7 @@ public class MyProfileActivity extends AppCompatActivity {
                                 dialogInterface.dismiss();
                             }
                         });
+
                 builder.create().show();
             }
         });

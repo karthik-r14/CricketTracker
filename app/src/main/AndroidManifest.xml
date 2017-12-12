@@ -22,9 +22,8 @@
         </activity>
         <activity android:name=".view.MainActivity" />
         <activity
-            android:name=".view.ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".view.MatchesActivity"
+            android:label="@string/title_activity"/>
         <activity
             android:name=".view.FeedbackActivity"
             android:label="@string/feedback" />
