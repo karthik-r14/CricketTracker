@@ -3,6 +3,7 @@
     package="com.example.kr_pc.crickettracker">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +24,7 @@
         <activity android:name=".view.MainActivity" />
         <activity
             android:name=".view.MatchesActivity"
-            android:label="@string/title_activity"/>
+            android:label="@string/title_activity" />
         <activity
             android:name=".view.FeedbackActivity"
             android:label="@string/feedback" />

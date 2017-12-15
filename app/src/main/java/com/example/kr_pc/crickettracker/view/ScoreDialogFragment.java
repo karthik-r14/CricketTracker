@@ -2,6 +2,8 @@ package com.example.kr_pc.crickettracker.view;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -25,8 +27,10 @@ import com.example.kr_pc.crickettracker.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static android.widget.Toast.LENGTH_LONG;
 
 /**
  * Created by KR-PC on 12-12-2017.
@@ -67,10 +71,14 @@ public class ScoreDialogFragment extends DialogFragment {
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(VISIBLE);
-                buttonLayout.setVisibility(GONE);
-                score.setVisibility(GONE);
-                loadLiveScore(id);
+                if(connectivityAvailable()) {
+                    progressBar.setVisibility(VISIBLE);
+                    buttonLayout.setVisibility(GONE);
+                    score.setVisibility(GONE);
+                    loadLiveScore(id);
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
+                }
             }
         });
 
@@ -86,6 +94,13 @@ public class ScoreDialogFragment extends DialogFragment {
         return dialog;
     }
 
+    public boolean connectivityAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+
     private void loadLiveScore(Long id) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL + id,
                 new Response.Listener<String>() {
@@ -97,13 +112,15 @@ public class ScoreDialogFragment extends DialogFragment {
                             JSONObject obj = new JSONObject(response);
                             Log.e("Obj is :", obj.toString());
 
-                            String scoreText = obj.get("score").toString();
-                            Log.e("Score is :", scoreText);
+                            if(obj.has("score")) {
+                                String scoreText = obj.get("score").toString();
+                                Log.e("Score is :", scoreText);
+                                score.setText(scoreText);
+                            }
                             //creating a match object and giving them the values from json object
                             score.setVisibility(VISIBLE);
                             progressBar.setVisibility(GONE);
                             buttonLayout.setVisibility(VISIBLE);
-                            score.setText(scoreText);
 
                             //creating custom adapter object
                         } catch (JSONException e) {

@@ -8,11 +8,13 @@ public class Match {
     long id;
     String team1;
     String team2;
+    boolean matchStarted;
 
-    public Match(long id, String team1, String team2) {
+    public Match(long id, String team1, String team2, boolean matchStarted) {
         this.id = id;
         this.team1 = team1;
         this.team2 = team2;
+        this.matchStarted = matchStarted;
     }
 
     public long getId() {
@@ -25,5 +27,9 @@ public class Match {
 
     public String getTeam2() {
         return team2;
+    }
+
+    public boolean isMatchStarted() {
+        return matchStarted;
     }
 }

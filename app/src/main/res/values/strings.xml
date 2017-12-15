@@ -46,4 +46,5 @@
     <string name="team_1">Team 1</string>
     <string name="vs">Vs</string>
     <string name="team_2">Team 2</string>
+    <string name="no_internet_message">Internet is not available</string>
 </resources>
