@@ -40,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button playerProfileButton = findViewById(R.id.player_profile_button);
+        playerProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (connectivityAvailable()) {
+                    Intent intent = new Intent(MainActivity.this, PlayerSearchActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
+                }
+            }
+        });
+
         Button myProfileButton = findViewById(R.id.my_profile);
         myProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override

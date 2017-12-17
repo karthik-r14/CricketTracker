@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -38,6 +39,7 @@ public class MatchesActivity extends AppCompatActivity {
 
     //the match list where we will store all the match objects after parsing json
     List<Match> matchList;
+    TextView matchText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class MatchesActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
         matchList = new ArrayList<>();
+        matchText = findViewById(R.id.match_text);
+
 
         loadMatchList();
     }
@@ -110,6 +114,7 @@ public class MatchesActivity extends AppCompatActivity {
 
                             //hiding the progressbar after completion
                             progressBar.setVisibility(GONE);
+                            matchText.setVisibility(VISIBLE);
 
 
                         } catch (JSONException e) {

@@ -36,7 +36,13 @@
             android:label="@string/my_profile" />
         <activity
             android:name=".view.EditProfileActivity"
-            android:label="@string/edit_profile"></activity>
+            android:label="@string/edit_profile" />
+        <activity
+            android:name=".view.PlayerSearchActivity"
+            android:label="@string/search_player" />
+        <activity
+            android:name=".view.PlayerProfileActivity"
+            android:label="@string/player_profile"></activity>
     </application>
 
 </manifest>
