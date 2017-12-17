@@ -20,8 +20,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.widget.Toast.LENGTH_LONG;
-
 public class PlayerProfileActivity extends AppCompatActivity {
     private static final String JSON_URL = "http://cricapi.com/api/playerStats?apikey=f2ZI9j09ZbNo5BwdhlTs3lRt36z2&pid=";
 
@@ -38,12 +36,10 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerDob = findViewById(R.id.dob);
         playerImage = findViewById(R.id.player_image);
 
-        Toast.makeText(getApplicationContext(), "Player id" + getIntent().getExtras().getString("playerId"), LENGTH_LONG).show();
         loadPlayerProfile(getIntent().getExtras().getString("playerId"));
     }
 
     private void loadPlayerProfile(final String playerId) {
-        Toast.makeText(getApplicationContext(), "Hello" + playerId, LENGTH_LONG).show();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL + playerId,
                 new Response.Listener<String>() {
                     @Override
@@ -59,7 +55,6 @@ public class PlayerProfileActivity extends AppCompatActivity {
                             playerDob.setText(dob);
 
                             if(imageUrl != "null") {
-                                Toast.makeText(getApplicationContext(), "image url" + imageUrl, LENGTH_LONG).show();
                                 Picasso.with(PlayerProfileActivity.this)
                                         .load(imageUrl)
                                         .transform(new CircleTransform())

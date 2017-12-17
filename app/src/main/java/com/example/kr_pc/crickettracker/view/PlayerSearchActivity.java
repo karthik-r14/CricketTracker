@@ -64,7 +64,6 @@ public class PlayerSearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(PlayerSearchActivity.this, PlayerProfileActivity.class);
-                Toast.makeText(getApplicationContext(), "Id" + playerIdList.get(i), LENGTH_LONG).show();
                 intent.putExtra("playerId", playerIdList.get(i).toString());
                 startActivity(intent);
             }

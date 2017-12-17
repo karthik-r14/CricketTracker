@@ -10,7 +10,8 @@
     <ImageView
         android:id="@+id/player_image"
         android:layout_width="wrap_content"
-        android:layout_height="200dp" />
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -21,12 +22,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Name : " />
 
         <TextView
             android:id="@+id/player_name"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
             android:text="Karthik R" />
 
@@ -41,13 +44,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="DOB : " />
 
         <TextView
             android:id="@+id/dob"
             android:layout_width="wrap_content"
-            android:layout_height="3dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:textColor="@color/black"
             android:text="14.08.1993" />
 
     </LinearLayout>
