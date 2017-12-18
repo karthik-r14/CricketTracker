@@ -25,6 +25,16 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/search_player" />
 
+        <TextView
+            android:id="@+id/player_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Player not found"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:visibility="gone"
+            android:textSize="25sp"/>
         <ListView
             android:id="@+id/player_list"
             android:background="@color/black"

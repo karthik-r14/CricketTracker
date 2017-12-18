@@ -2,7 +2,6 @@ package com.example.kr_pc.crickettracker.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +25,11 @@ public class PlayerProfileActivity extends AppCompatActivity {
     TextView playerName;
     TextView playerDob;
     ImageView playerImage;
+    TextView playerCurrentAge;
+    TextView playerRole;
+    TextView playerBattingStyle;
+    TextView playerBowlingStyle;
+    TextView playerMajorTeams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,12 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerName = findViewById(R.id.player_name);
         playerDob = findViewById(R.id.dob);
         playerImage = findViewById(R.id.player_image);
+        playerCurrentAge = findViewById(R.id.age);
+        playerRole = findViewById(R.id.role);
+        playerBattingStyle = findViewById(R.id.batting_style);
+        playerBowlingStyle = findViewById(R.id.bowling_style);
+        playerMajorTeams = findViewById(R.id.major_teams);
+
 
         loadPlayerProfile(getIntent().getExtras().getString("playerId"));
     }
@@ -50,9 +60,19 @@ public class PlayerProfileActivity extends AppCompatActivity {
                             String name = obj.getString("name");
                             String dob = obj.getString("born");
                             String imageUrl = obj.getString("imageURL");
-                            Log.e("Values", name + dob + imageUrl);
+                            String currentAge = obj.getString("currentAge");
+                            String role = obj.getString("playingRole");
+                            String battingStyle = obj.getString("battingStyle");
+                            String bowlingStyle = obj.getString("bowlingStyle");
+                            String majorTeams = obj.getString("majorTeams");
+
                             playerName.setText(name);
                             playerDob.setText(dob);
+                            playerCurrentAge.setText(currentAge);
+                            playerRole.setText(role);
+                            playerBattingStyle.setText(battingStyle);
+                            playerBowlingStyle.setText(bowlingStyle);
+                            playerMajorTeams.setText(majorTeams);
 
                             if(imageUrl != "null") {
                                 Picasso.with(PlayerProfileActivity.this)

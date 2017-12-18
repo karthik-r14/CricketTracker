@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,6 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.widget.Toast.LENGTH_LONG;
 
@@ -39,6 +41,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
     List<String> playerList;
     List<Long> playerIdList;
     ListView listView;
+    TextView playerNotFoundText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_player_search);
 
         listView = findViewById(R.id.player_list);
+        playerNotFoundText = findViewById(R.id.player_not_found);
         playerIdList = new ArrayList<>();
         Button playerSearchButton = findViewById(R.id.player_search_button);
         playerSearchButton.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +57,12 @@ public class PlayerSearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (connectivityAvailable()) {
                     playerName = findViewById(R.id.player_name);
-                    loadPlayerList(playerName.getText().toString());
+                    String player = playerName.getText().toString();
+                    if (player.trim().isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Player name should not be empty", LENGTH_LONG).show();
+                    } else {
+                        loadPlayerList(player);
+                    }
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
                 }
@@ -74,6 +83,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
 
         playerList = new ArrayList<>();
         playerIdList = new ArrayList<>();
+        playerNotFoundText.setVisibility(GONE);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL + playerName,
                 new Response.Listener<String>() {
@@ -104,6 +114,10 @@ public class PlayerSearchActivity extends AppCompatActivity {
                             //adding the adapter to listview
                             listView.setAdapter(adapter);
                             listView.setVisibility(VISIBLE);
+
+                            if (playerList.isEmpty()) {
+                                playerNotFoundText.setVisibility(VISIBLE);
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
