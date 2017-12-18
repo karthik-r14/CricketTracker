@@ -49,4 +49,13 @@
     <string name="no_internet_message">Internet is not available</string>
     <string name="enter_player_name">Enter player name</string>
     <string name="search_player">Search Player</string>
+    <string name="profile">Profile :</string>
+    <string name="major_teams">Major Teams :</string>
+    <string name="left_arm_orthodox">Left arm orthodox</string>
+    <string name="bowling_style">Bowling style :</string>
+    <string name="batting_style">Batting style:</string>
+    <string name="role">Role :</string>
+    <string name="current_age">Current Age :</string>
+    <string name="dob">DOB :</string>
+    <string name="player_name">Name :</string>
 </resources>

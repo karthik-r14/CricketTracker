@@ -30,6 +30,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
     TextView playerBattingStyle;
     TextView playerBowlingStyle;
     TextView playerMajorTeams;
+    TextView playerProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerBattingStyle = findViewById(R.id.batting_style);
         playerBowlingStyle = findViewById(R.id.bowling_style);
         playerMajorTeams = findViewById(R.id.major_teams);
+        playerProfile = findViewById(R.id.profile);
 
 
         loadPlayerProfile(getIntent().getExtras().getString("playerId"));
@@ -65,6 +67,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
                             String battingStyle = obj.getString("battingStyle");
                             String bowlingStyle = obj.getString("bowlingStyle");
                             String majorTeams = obj.getString("majorTeams");
+                            String profile = obj.getString("profile");
 
                             playerName.setText(name);
                             playerDob.setText(dob);
@@ -73,6 +76,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
                             playerBattingStyle.setText(battingStyle);
                             playerBowlingStyle.setText(bowlingStyle);
                             playerMajorTeams.setText(majorTeams);
+                            playerProfile.setText(profile);
 
                             if(imageUrl != "null") {
                                 Picasso.with(PlayerProfileActivity.this)

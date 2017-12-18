@@ -14,12 +14,12 @@
         android:text="Tap on a match to view scores."
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <RelativeLayout
-        android:layout_below="@+id/match_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/match_text">
 
         <ListView
             android:id="@+id/listView"
