@@ -75,6 +75,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
                 Intent intent = new Intent(PlayerSearchActivity.this, PlayerProfileActivity.class);
                 intent.putExtra("playerId", playerIdList.get(i).toString());
                 startActivity(intent);
+                overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
             }
         });
     }
@@ -142,5 +143,11 @@ public class PlayerSearchActivity extends AppCompatActivity {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
     }
 }

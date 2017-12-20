@@ -81,7 +81,6 @@ public class PlayerProfileActivity extends AppCompatActivity {
                             playerBowlingStyle.setText(bowlingStyle);
                             playerMajorTeams.setText(majorTeams);
                             playerProfile.setText(profile);
-                            playerProfileLayout.setVisibility(VISIBLE);
 
                             if(imageUrl != "null") {
                                 Picasso.with(PlayerProfileActivity.this)
@@ -94,6 +93,8 @@ public class PlayerProfileActivity extends AppCompatActivity {
                                         .transform(new CircleTransform())
                                         .into(playerImage);
                             }
+
+                            playerProfileLayout.setVisibility(VISIBLE);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -113,5 +114,11 @@ public class PlayerProfileActivity extends AppCompatActivity {
 
         //adding the string request to request queue
         requestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
     }
 }

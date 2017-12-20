@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 if (connectivityAvailable()) {
                     Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
                 }
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 if (connectivityAvailable()) {
                     Intent intent = new Intent(MainActivity.this, PlayerSearchActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
                 }
@@ -65,6 +67,20 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, EditProfileActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+                }
+            }
+        });
+
+        Button fixturesButton = findViewById(R.id.fixtures);
+        fixturesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (connectivityAvailable()) {
+                    Intent intent = new Intent(MainActivity.this, FixturesActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
                 }
             }
         });

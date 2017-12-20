@@ -42,7 +42,9 @@
             android:label="@string/search_player" />
         <activity
             android:name=".view.PlayerProfileActivity"
-            android:label="@string/player_profile"></activity>
+            android:label="@string/player_profile" />
+        <activity android:name=".view.FixturesActivity"
+            android:label="@string/fixtures"></activity>
     </application>
 
 </manifest>
