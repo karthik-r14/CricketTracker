@@ -3,6 +3,7 @@ package com.example.kr_pc.crickettracker.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static android.view.View.VISIBLE;
+
 public class PlayerProfileActivity extends AppCompatActivity {
     private static final String JSON_URL = "http://cricapi.com/api/playerStats?apikey=f2ZI9j09ZbNo5BwdhlTs3lRt36z2&pid=";
 
@@ -31,6 +34,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
     TextView playerBowlingStyle;
     TextView playerMajorTeams;
     TextView playerProfile;
+    LinearLayout playerProfileLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerBowlingStyle = findViewById(R.id.bowling_style);
         playerMajorTeams = findViewById(R.id.major_teams);
         playerProfile = findViewById(R.id.profile);
-
+        playerProfileLayout = findViewById(R.id.player_profile_layout);
 
         loadPlayerProfile(getIntent().getExtras().getString("playerId"));
     }
@@ -77,6 +81,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
                             playerBowlingStyle.setText(bowlingStyle);
                             playerMajorTeams.setText(majorTeams);
                             playerProfile.setText(profile);
+                            playerProfileLayout.setVisibility(VISIBLE);
 
                             if(imageUrl != "null") {
                                 Picasso.with(PlayerProfileActivity.this)

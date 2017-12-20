@@ -8,9 +8,11 @@
     tools:context="com.example.kr_pc.crickettracker.view.PlayerProfileActivity">
 
     <LinearLayout
+        android:id="@+id/player_profile_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/player_image"
