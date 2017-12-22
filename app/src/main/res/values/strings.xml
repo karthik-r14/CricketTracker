@@ -58,4 +58,6 @@
     <string name="current_age">Current Age :</string>
     <string name="dob">DOB :</string>
     <string name="player_name">Name :</string>
+    <string name="match_date">20 Dec 2017</string>
+    <string name="match">India vs Sri Lanka</string>
 </resources>

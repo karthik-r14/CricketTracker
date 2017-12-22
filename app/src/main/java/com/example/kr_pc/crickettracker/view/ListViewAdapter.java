@@ -18,14 +18,14 @@ import java.util.List;
 
 public class ListViewAdapter extends ArrayAdapter<Match> {
 
-    //the hero list that will be displayed
+    //the match list that will be displayed
     private List<Match> matchList;
 
     //the context object
     private Context mCtx;
 
-    //here we are getting the herolist and context
-    //so while creating the object of this adapter class we need to give herolist and context
+    //here we are getting the matchlist and context
+    //so while creating the object of this adapter class we need to give matchlist and context
     public ListViewAdapter(List<Match> matchList, Context mCtx) {
         super(mCtx, R.layout.list_items, matchList);
         this.matchList = matchList;

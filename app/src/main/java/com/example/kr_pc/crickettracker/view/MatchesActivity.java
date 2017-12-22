@@ -103,9 +103,6 @@ public class MatchesActivity extends AppCompatActivity {
                                 }
                             }
 
-                            for (Match match : matchList) {
-                                Log.e("match", match.getTeam1() + match.getTeam2());
-                            }
                             //creating custom adapter object
                             ListViewAdapter adapter = new ListViewAdapter(matchList, getApplicationContext());
 
