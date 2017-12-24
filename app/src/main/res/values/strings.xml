@@ -60,4 +60,5 @@
     <string name="player_name">Name :</string>
     <string name="match_date">20 Dec 2017</string>
     <string name="match">India vs Sri Lanka</string>
+    <string name="service_error_msg">Service error.Please try again later.</string>
 </resources>

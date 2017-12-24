@@ -58,7 +58,7 @@ public class FixturesActivity extends AppCompatActivity {
                             //so here we are getting that json array
                             JSONArray fixtureArray = obj.getJSONArray("data");
 
-                            for (int i = 0; i < 10; i++) {
+                            for (int i = 0; i < 15; i++) {
                                 //getting the json object of the particular index inside the array
                                 JSONObject fixtureObject = fixtureArray.getJSONObject(i);
                                 Fixture fixture = new Fixture(fixtureObject.getString("name"), fixtureObject.getString("date"));
@@ -81,7 +81,8 @@ public class FixturesActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //displaying the error in toast if occurrs
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(GONE);
+                        Toast.makeText(getApplicationContext(), getString(R.string.service_error_msg) + error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 

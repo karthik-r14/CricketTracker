@@ -128,7 +128,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //displaying the error in toast if occurrs
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.service_error_msg) + error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
