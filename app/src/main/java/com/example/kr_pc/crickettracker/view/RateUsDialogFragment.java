@@ -3,6 +3,8 @@ package com.example.kr_pc.crickettracker.view;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kr_pc.crickettracker.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static android.content.Context.CONNECTIVITY_SERVICE;
+import static android.widget.Toast.LENGTH_LONG;
 
 /**
  * Created by KR-PC on 13-11-2017.
@@ -21,6 +28,7 @@ import com.example.kr_pc.crickettracker.R;
 public class RateUsDialogFragment extends android.support.v4.app.DialogFragment {
 
     public static final String TAG = RateUsDialogFragment.class.getSimpleName();
+    public static final String RATING = "rating";
 
     RatingBar ratingBar;
     Button submitButton;
@@ -28,6 +36,8 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
     LinearLayout buttonLayout;
     TextView ratingMessage;
     View view;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     public static RateUsDialogFragment newInstance() {
         return new RateUsDialogFragment();
@@ -37,6 +47,9 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         view = inflater.inflate(R.layout.rate_us, null);
+
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference(RATING);
 
         submitButton = view.findViewById(R.id.rating_submit_button);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -82,17 +95,29 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
     }
 
     private void onSubmitButtonClick() {
-        if (submitButton.getText().equals(getResources().getString(R.string.feedback))) {
-            Intent intent = new Intent(getActivity(), FeedbackActivity.class);
-            startActivity(intent);
-            dismiss();
+        if (connectivityAvailable()) {
+            if (submitButton.getText().equals(getResources().getString(R.string.feedback))) {
+                Intent intent = new Intent(getActivity(), FeedbackActivity.class);
+                myRef.push().setValue(ratingBar.getRating());
+                startActivity(intent);
+                dismiss();
+            } else {
+                myRef.push().setValue(ratingBar.getRating());
+                Toast.makeText(getContext(), R.string.valid_ratingbar_text, LENGTH_LONG).show();
+                dismiss();
+            }
         } else {
-            Toast.makeText(getContext(), R.string.valid_ratingbar_text, Toast.LENGTH_LONG).show();
-            dismiss();
+            Toast.makeText(getActivity(), getString(R.string.no_internet_message), LENGTH_LONG).show();
         }
     }
 
     private void onNotNowButtonClick() {
         dismiss();
+    }
+
+    public boolean connectivityAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
