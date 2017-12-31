@@ -11,6 +11,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/player_search_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/player_search_image"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:src="@drawable/player_search_image" />
+
         <EditText
             android:id="@+id/player_name"
             android:layout_width="match_parent"
@@ -23,23 +33,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/search_player" />
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
+            android:text="@string/search_player"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/player_not_found"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Player not found"
+            android:background="@color/colorPrimary"
             android:gravity="center_horizontal"
+            android:text="@string/player_not_found"
             android:textColor="@color/white"
-            android:background="@color/black"
-            android:visibility="gone"
-            android:textSize="25sp"/>
+            android:textSize="20sp"
+            android:visibility="gone" />
+
         <ListView
             android:id="@+id/player_list"
-            android:background="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:visibility="gone" />
 
     </LinearLayout>

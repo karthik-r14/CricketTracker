@@ -1,5 +1,6 @@
 package com.example.kr_pc.crickettracker.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +44,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
     List<Long> playerIdList;
     ListView listView;
     TextView playerNotFoundText;
+    ImageView playerSearchImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +52,15 @@ public class PlayerSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_player_search);
 
         listView = findViewById(R.id.player_list);
+        playerSearchImage = findViewById(R.id.player_search_image);
         playerNotFoundText = findViewById(R.id.player_not_found);
+        playerName = findViewById(R.id.player_name);
         playerIdList = new ArrayList<>();
         Button playerSearchButton = findViewById(R.id.player_search_button);
         playerSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (connectivityAvailable()) {
-                    playerName = findViewById(R.id.player_name);
                     String player = playerName.getText().toString();
                     if (player.trim().isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Player name should not be empty", LENGTH_LONG).show();
@@ -66,6 +70,13 @@ public class PlayerSearchActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
                 }
+            }
+        });
+        playerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                playerSearchImage.getLayoutParams().height = 150;
+                playerSearchImage.requestLayout();
             }
         });
 
@@ -88,6 +99,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL + playerName,
                 new Response.Listener<String>() {
+                    @SuppressLint("ResourceAsColor")
                     @Override
                     public void onResponse(String response) {
                         try {

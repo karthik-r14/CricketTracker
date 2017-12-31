@@ -98,6 +98,7 @@ public class MyProfileActivity extends AppCompatActivity {
             case R.id.edit_profile:
                 Intent intent = new Intent(MyProfileActivity.this, EditProfileActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
                 finish();
                 return true;
 
