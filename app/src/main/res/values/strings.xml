@@ -63,4 +63,6 @@
     <string name="service_error_msg">Service error.Please try again later.</string>
     <string name="player_search_image">player search image</string>
     <string name="player_not_found">Player not found</string>
+    <string name="no_login_rating_text">Please Login in my profile section to give rating.</string>
+    <string name="no_login_feedback_text">Please login in the my profile section to give feedback</string>
 </resources>

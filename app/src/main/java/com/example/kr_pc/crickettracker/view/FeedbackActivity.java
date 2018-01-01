@@ -1,5 +1,7 @@
 package com.example.kr_pc.crickettracker.view;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.kr_pc.crickettracker.R;
+import com.example.kr_pc.crickettracker.model.Feedback;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -49,8 +52,14 @@ public class FeedbackActivity extends AppCompatActivity {
             if (feedbackText.getText().toString().trim().isEmpty()) {
                 Toast.makeText(getApplicationContext(), R.string.empty_feedback_text_message, LENGTH_LONG).show();
             } else {
+                SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.MY_PROFILE, Context.MODE_PRIVATE);
+                String userName = sharedPreferences.getString(EditProfileActivity.USERNAME, "");
+                String phoneNumber = sharedPreferences.getString(EditProfileActivity.PHONE_NUMBER, "");
+                String emailId = sharedPreferences.getString(EditProfileActivity.EMAIL_ID, "");
+                String userFeedback = feedbackText.getText().toString();
 
-                myRef.push().setValue(feedbackText.getText().toString());
+                Feedback feedback = new Feedback(userName, phoneNumber, emailId, userFeedback);
+                myRef.push().setValue(feedback);
                 Toast.makeText(getApplicationContext(), R.string.feedback_message, LENGTH_LONG).show();
                 finish();
             }

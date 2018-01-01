@@ -5,11 +5,13 @@
 
     <TextView
         android:id="@+id/score_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="SCORE"
+        android:gravity="center_horizontal"
         android:textColor="@color/black"
+        android:text="SCORE"
+        android:textStyle="bold"
         android:textSize="25sp"
         android:layout_marginBottom="5dp" />
 
@@ -46,14 +48,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/refresh" />
+            android:text="@string/refresh"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/dismiss_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/dismiss" />
+            android:textColor="@color/black"
+            android:text="@string/dismiss"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

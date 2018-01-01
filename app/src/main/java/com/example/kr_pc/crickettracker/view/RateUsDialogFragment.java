@@ -2,7 +2,9 @@ package com.example.kr_pc.crickettracker.view;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kr_pc.crickettracker.R;
+import com.example.kr_pc.crickettracker.model.Rating;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -95,14 +98,21 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
     }
 
     private void onSubmitButtonClick() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(MainActivity.MY_PROFILE, Context.MODE_PRIVATE);
+        String userName = sharedPreferences.getString(EditProfileActivity.USERNAME, "");
+        String phoneNumber = sharedPreferences.getString(EditProfileActivity.PHONE_NUMBER, "");
+        String emailId = sharedPreferences.getString(EditProfileActivity.EMAIL_ID, "");
+        float userRating = ratingBar.getRating();
+        Rating rating = new Rating(userName, phoneNumber, emailId, userRating);
+
         if (connectivityAvailable()) {
             if (submitButton.getText().equals(getResources().getString(R.string.feedback))) {
                 Intent intent = new Intent(getActivity(), FeedbackActivity.class);
-                myRef.push().setValue(ratingBar.getRating());
+                myRef.push().setValue(rating);
                 startActivity(intent);
                 dismiss();
             } else {
-                myRef.push().setValue(ratingBar.getRating());
+                myRef.push().setValue(rating);
                 Toast.makeText(getContext(), R.string.valid_ratingbar_text, LENGTH_LONG).show();
                 dismiss();
             }

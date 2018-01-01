@@ -103,13 +103,22 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.rate_us:
-                RateUsDialogFragment rateUsDialogFragment = RateUsDialogFragment.newInstance();
-                rateUsDialogFragment.show(getSupportFragmentManager(), RateUsDialogFragment.TAG);
+                if (isUserLoggedIn()) {
+                    RateUsDialogFragment rateUsDialogFragment = RateUsDialogFragment.newInstance();
+                    rateUsDialogFragment.show(getSupportFragmentManager(), RateUsDialogFragment.TAG);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.no_login_rating_text, LENGTH_LONG).show();
+                }
                 return true;
             case R.id.feedback:
-                Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+                if (isUserLoggedIn()) {
+                    Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.no_login_feedback_text, LENGTH_LONG).show();
+                }
+
                 return true;
             case R.id.share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
