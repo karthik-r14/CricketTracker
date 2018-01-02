@@ -11,10 +11,30 @@ public class Rating {
     String emailId;
     float rating;
 
+    public Rating() {
+
+    }
+
     public Rating(String username, String phoneNumber, String emailId, float rating) {
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.emailId = emailId;
         this.rating = rating;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public float getRating() {
+        return rating;
     }
 }
