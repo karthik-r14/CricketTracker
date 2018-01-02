@@ -179,8 +179,8 @@ public class MatchesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (connectivityAvailable()) {
-                    System.out.println("on click Match" + matchList.get(i).getId());
-                    loadScore(matchList.get(i).getId());
+                    System.out.println("on click Match" + subMatchList.get(i).getId());
+                    loadScore(subMatchList.get(i).getId());
                 } else {
                     Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
                 }
