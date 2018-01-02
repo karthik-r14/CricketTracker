@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -34,12 +35,16 @@ import static android.widget.Toast.LENGTH_LONG;
 
 public class MatchesActivity extends AppCompatActivity {
     private static final String JSON_URL = "http://cricapi.com/api/matches?apikey=f2ZI9j09ZbNo5BwdhlTs3lRt36z2";
+    public static final String ALL = "ALL";
 
     ListView listView;
+    Spinner matchTypeSpinner;
 
     //the match list where we will store all the match objects after parsing json
     List<Match> matchList;
-    TextView matchText;
+    List<String> matchTypeList;
+    List<Match> subMatchList;
+    ListViewAdapter listViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +52,41 @@ public class MatchesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_matches);
 
         listView = findViewById(R.id.listView);
+        matchTypeSpinner = findViewById(R.id.match_type_spinner);
         matchList = new ArrayList<>();
-        matchText = findViewById(R.id.match_text);
-
+        matchTypeList = new ArrayList<>();
+        subMatchList = new ArrayList<>();
+        matchTypeList.add(ALL);
 
         loadMatchList();
+    }
+
+    private void loadMatchType() {
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, matchTypeList);
+        matchTypeSpinner.setAdapter(adapter);
+        matchTypeSpinner.setVisibility(VISIBLE);
+
+        matchTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                subMatchList.clear();
+                if (matchTypeList.get(i).equals(ALL)) {
+                    subMatchList.addAll(matchList);
+                } else {
+                    for (Match match : matchList) {
+                        if (matchTypeList.get(i).equals(match.getMatchType())) {
+                            subMatchList.add(match);
+                        }
+                    }
+                }
+                listViewAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     public boolean connectivityAvailable() {
@@ -95,23 +130,29 @@ public class MatchesActivity extends AppCompatActivity {
                                 JSONObject matchObject = matchArray.getJSONObject(i);
 
                                 //creating a match object and giving them the values from json object
-                                Match match = new Match(matchObject.getLong("unique_id"), matchObject.getString("team-1"), matchObject.getString("team-2"), matchObject.getBoolean("matchStarted"));
+                                Match match = new Match(matchObject.getLong("unique_id"), matchObject.getString("team-1"), matchObject.getString("team-2"), matchObject.getBoolean("matchStarted"), matchObject.getString("type"));
 
                                 //adding the match to matchlist
                                 if (match.isMatchStarted()) {
                                     matchList.add(match);
+
+                                    if (!matchTypeList.contains(match.getMatchType())) {
+                                        matchTypeList.add(match.getMatchType());
+                                    }
                                 }
                             }
 
+                            //subMatchList.addAll(matchList);
                             //creating custom adapter object
-                            ListViewAdapter adapter = new ListViewAdapter(matchList, getApplicationContext());
+                            listViewAdapter = new ListViewAdapter(subMatchList, getApplicationContext());
 
                             //adding the adapter to listview
-                            listView.setAdapter(adapter);
+                            listView.setAdapter(listViewAdapter);
+                            loadMatchType();
 
                             //hiding the progressbar after completion
                             progressBar.setVisibility(GONE);
-                            matchText.setVisibility(VISIBLE);
+                            Toast.makeText(getApplicationContext(), R.string.tap_on_match, LENGTH_LONG).show();
 
 
                         } catch (JSONException e) {
