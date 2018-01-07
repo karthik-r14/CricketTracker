@@ -30,7 +30,8 @@ public class AboutUsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Uri webpage = Uri.parse(getResources().getString(R.string.github_handle));
-                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                Intent intent = new
+                        Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(intent);
             }
         });
