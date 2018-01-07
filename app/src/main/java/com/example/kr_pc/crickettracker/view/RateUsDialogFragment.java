@@ -1,10 +1,13 @@
 package com.example.kr_pc.crickettracker.view;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -32,6 +35,7 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
 
     public static final String TAG = RateUsDialogFragment.class.getSimpleName();
     public static final String RATING = "rating";
+    public static final int THRESHOLD = 3;
 
     RatingBar ratingBar;
     Button submitButton;
@@ -46,6 +50,7 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
         return new RateUsDialogFragment();
     }
 
+    @SuppressLint("ResourceAsColor")
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -81,7 +86,7 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
                     ratingMessage.setVisibility(View.VISIBLE);
                     buttonLayout.setVisibility(View.GONE);
                 } else {
-                    if (ratingBar.getRating() <= 3) {
+                    if (ratingBar.getRating() <= THRESHOLD) {
                         submitButton.setText(getResources().getString(R.string.feedback));
                     } else {
                         submitButton.setText(getResources().getString(R.string.submit));
@@ -91,6 +96,10 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
                 }
             }
         });
+
+        LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(R.color.golden, PorterDuff.Mode.SRC_ATOP);
+
 
         builder.setView(view);
         Dialog dialog = builder.create();

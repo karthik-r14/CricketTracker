@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.kr_pc.crickettracker.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import static android.widget.Toast.LENGTH_LONG;
 
@@ -22,10 +24,17 @@ public class MainActivity extends AppCompatActivity {
     public static final String MY_PROFILE = "my_profile";
     public static final String LOGGED_IN = "LoggedIn";
 
+    private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         Button liveScoreButton = findViewById(R.id.live_score_button);
         liveScoreButton.setOnClickListener(new View.OnClickListener() {
