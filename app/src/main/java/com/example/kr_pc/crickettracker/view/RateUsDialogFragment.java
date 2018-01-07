@@ -6,8 +6,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.LayerDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -96,10 +94,6 @@ public class RateUsDialogFragment extends android.support.v4.app.DialogFragment 
                 }
             }
         });
-
-        LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
-        stars.getDrawable(2).setColorFilter(R.color.golden, PorterDuff.Mode.SRC_ATOP);
-
 
         builder.setView(view);
         Dialog dialog = builder.create();
