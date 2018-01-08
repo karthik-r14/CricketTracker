@@ -61,7 +61,7 @@ public class EditProfileActivity extends AppCompatActivity {
         if (userPhoneNumber.trim().isEmpty()) {
             phoneNumber.setError(getString(R.string.empty_phone_number_message));
             validFieldsFlag = false;
-        } else if (!userPhoneNumber.matches("^[2-9]{2}[0-9]{8}$")) {
+        } else if (userPhoneNumber.length() != 10) {
             phoneNumber.setError(getString(R.string.incomplete_phone_number_message));
             validFieldsFlag = false;
         }
