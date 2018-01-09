@@ -67,5 +67,7 @@
     <string name="no_login_feedback_text">Please login in the my profile section to give feedback</string>
     <string name="tap_on_match">Tap on a match to view scores</string>
     <string name="banner_ad_unit_id">ca-app-pub-7212027927656656/6753159582</string>
+    <string name="my_email_id">karthikr1493@gmail.com</string>
+    <string name="email_id">Email Id :</string>
     <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kr_pc.crickettracker">
+    package="com.myapp.kr_pc.crickettracker">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.SplashActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,29 +21,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainActivity" />
+        <activity android:name="com.myapp.kr_pc.crickettracker.view.MainActivity" />
         <activity
-            android:name=".view.MatchesActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.MatchesActivity"
             android:label="@string/title_activity" />
         <activity
-            android:name=".view.FeedbackActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.FeedbackActivity"
             android:label="@string/feedback" />
         <activity
-            android:name=".view.AboutUsActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.AboutUsActivity"
             android:label="@string/about_us" />
         <activity
-            android:name=".view.MyProfileActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.MyProfileActivity"
             android:label="@string/my_profile" />
         <activity
-            android:name=".view.EditProfileActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.EditProfileActivity"
             android:label="@string/edit_profile" />
         <activity
-            android:name=".view.PlayerSearchActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.PlayerSearchActivity"
             android:label="@string/search_player" />
         <activity
-            android:name=".view.PlayerProfileActivity"
+            android:name="com.myapp.kr_pc.crickettracker.view.PlayerProfileActivity"
             android:label="@string/player_profile" />
-        <activity android:name=".view.FixturesActivity"
+        <activity android:name="com.myapp.kr_pc.crickettracker.view.FixturesActivity"
             android:label="@string/fixtures"></activity>
     </application>
 

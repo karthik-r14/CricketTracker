@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context="com.example.kr_pc.crickettracker.view.FixturesActivity">
+    tools:context="com.myapp.kr_pc.crickettracker.view.FixturesActivity">
 
     <ListView
         android:id="@+id/fixtures_list"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:fitsSystemWindows="true"
-    tools:context="com.example.kr_pc.crickettracker.view.MatchesActivity">
+    tools:context="com.myapp.kr_pc.crickettracker.view.MatchesActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

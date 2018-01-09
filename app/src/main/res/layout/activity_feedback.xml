@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kr_pc.crickettracker.view.FeedbackActivity">
+    tools:context="com.myapp.kr_pc.crickettracker.view.FeedbackActivity">
 
     <ImageView
         android:layout_width="400dp"

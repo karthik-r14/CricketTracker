@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context="com.example.kr_pc.crickettracker.view.EditProfileActivity">
+    tools:context="com.myapp.kr_pc.crickettracker.view.EditProfileActivity">
 
     <TextView
         android:layout_width="wrap_content"
