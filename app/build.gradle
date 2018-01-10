@@ -7,7 +7,7 @@ android {
     }
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.kr_pc.crickettracker"
+        applicationId "com.myapp.kr_pc.crickettracker"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1

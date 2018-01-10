@@ -14,37 +14,47 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.myapp.kr_pc.crickettracker.view.MainActivity" />
+        <activity android:name="com.myapp.kr_pc.crickettracker.view.MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.MatchesActivity"
-            android:label="@string/title_activity" />
+            android:label="@string/title_activity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.FeedbackActivity"
-            android:label="@string/feedback" />
+            android:label="@string/feedback"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.AboutUsActivity"
-            android:label="@string/about_us" />
+            android:label="@string/about_us"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.MyProfileActivity"
-            android:label="@string/my_profile" />
+            android:label="@string/my_profile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.EditProfileActivity"
-            android:label="@string/edit_profile" />
+            android:label="@string/edit_profile"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.PlayerSearchActivity"
-            android:label="@string/search_player" />
+            android:label="@string/search_player"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.myapp.kr_pc.crickettracker.view.PlayerProfileActivity"
-            android:label="@string/player_profile" />
+            android:label="@string/player_profile"
+            android:screenOrientation="portrait"/>
         <activity android:name="com.myapp.kr_pc.crickettracker.view.FixturesActivity"
-            android:label="@string/fixtures"></activity>
+            android:label="@string/fixtures"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
