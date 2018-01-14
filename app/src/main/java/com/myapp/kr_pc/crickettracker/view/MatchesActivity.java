@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.myapp.kr_pc.crickettracker.R;
 import com.myapp.kr_pc.crickettracker.model.Match;
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +38,8 @@ public class MatchesActivity extends AppCompatActivity {
     public static final String ALL = "ALL";
 
     ListView listView;
-    Spinner matchTypeSpinner;
+    //Spinner matchTypeSpinner;
+    SearchableSpinner matchTypeSpinner;
 
     //the match list where we will store all the match objects after parsing json
     List<Match> matchList;

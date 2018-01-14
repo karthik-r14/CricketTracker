@@ -12,14 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Spinner
+        <!--<Spinner-->
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/match_type_spinner"
-            android:background="@android:drawable/alert_light_frame"
+            style="@style/AppSpinner"
+            android:background="@android:drawable/btn_dropdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:spinnerMode="dialog"
-            android:visibility="gone" />
+            android:layout_margin="@dimen/view_margin_5dp" />
 
         <ListView
             android:id="@+id/listView"

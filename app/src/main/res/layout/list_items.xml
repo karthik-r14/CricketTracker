@@ -15,6 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/cric_trac_app_spinner_bg"
             android:orientation="vertical">
 
             <TextView

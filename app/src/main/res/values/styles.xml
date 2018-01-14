@@ -22,4 +22,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- [Mani, 14-Jan-2018] Added spinner style -->
+    <!-- 2. Spinner built-in style - @android:style/Widget.Spinner -->
+    <style name="AppSpinner">
+        <item name="android:background">@drawable/cric_trac_app_spinner_bg</item>
+    </style>
+
 </resources>
