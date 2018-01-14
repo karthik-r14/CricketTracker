@@ -17,6 +17,7 @@
             android:id="@+id/match_type_spinner"
             style="@style/AppSpinner"
             android:background="@android:drawable/btn_dropdown"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
