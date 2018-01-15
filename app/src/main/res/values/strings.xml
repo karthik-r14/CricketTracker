@@ -11,12 +11,12 @@
     <string name="valid_ratingbar_text">Rating is submitted.</string>
     <string name="submit">Submit</string>
     <string name="rating_message">Tap stars to rate us.</string>
-    <string name="about_us_message">This app is built by Karthik Ramachandran</string>
+    <string name="about_us_message">This app is built by Karthik Ramachandran.You can reach out to him using the email id given below</string>
     <string name="github_text">github handle : </string>
     <string name="github_handle">https://github.com/karthik-r14</string>
     <string name="maker_image">Maker Image</string>
     <string name="share">Share</string>
-    <string name="share_message">Hey! I am using the Cric Tracker app</string>
+    <string name="share_message">Hey! I am using the Cric Tracker app.Download this app on your device today using this link -> https://play.google.com/store/apps/details?id=com.myapp.kr_pc.crickettracker</string>
     <string name="about_us">About Us</string>
     <string name="my_profile">My Profile</string>
     <string name="fixtures">Fixtures</string>
