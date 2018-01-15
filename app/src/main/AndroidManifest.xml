@@ -7,9 +7,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/cric_track_icon"
+        android:icon="@mipmap/cric_track_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
