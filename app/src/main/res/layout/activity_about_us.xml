@@ -9,9 +9,10 @@
     tools:context="com.myapp.kr_pc.crickettracker.view.AboutUsActivity">
 
     <ImageView
-        android:id="@+id/my_image"
+        android:id="@+id/about_us_image"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
         android:contentDescription="@string/maker_image" />
 
     <TextView

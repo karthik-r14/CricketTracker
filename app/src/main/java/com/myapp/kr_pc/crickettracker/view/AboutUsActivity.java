@@ -36,7 +36,7 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         });
 
-        imageView = findViewById(R.id.my_image);
+        imageView = findViewById(R.id.about_us_image);
         Picasso.with(AboutUsActivity.this)
                 .load(R.drawable.about_us)
                 .transform(new CircleTransform())
