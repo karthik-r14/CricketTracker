@@ -34,6 +34,12 @@ public class FixturesActivity extends AppCompatActivity {
 
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fixtures);

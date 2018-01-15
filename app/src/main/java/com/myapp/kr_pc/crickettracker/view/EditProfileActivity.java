@@ -88,7 +88,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
         super.onBackPressed();
+        overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
     }
 }
