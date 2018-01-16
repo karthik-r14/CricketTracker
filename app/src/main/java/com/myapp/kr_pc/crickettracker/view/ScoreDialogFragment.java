@@ -2,6 +2,7 @@ package com.myapp.kr_pc.crickettracker.view;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -48,7 +49,7 @@ public class ScoreDialogFragment extends DialogFragment {
     ProgressBar progressBar;
     LinearLayout buttonLayout;
     Button refreshButton;
-    Button dismissButton;
+    Button shareScoreButton;
     TextView score;
     Long id;
 
@@ -71,7 +72,7 @@ public class ScoreDialogFragment extends DialogFragment {
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(connectivityAvailable()) {
+                if (connectivityAvailable()) {
                     progressBar.setVisibility(VISIBLE);
                     buttonLayout.setVisibility(GONE);
                     score.setVisibility(GONE);
@@ -82,11 +83,14 @@ public class ScoreDialogFragment extends DialogFragment {
             }
         });
 
-        dismissButton = view.findViewById(R.id.dismiss_button);
-        dismissButton.setOnClickListener(new View.OnClickListener() {
+        shareScoreButton = view.findViewById(R.id.share_score_button);
+        shareScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getDialog().dismiss();
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("plain/text");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, score.getText().toString());
+                startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.share_score)));
             }
         });
         builder.setView(view);
@@ -112,10 +116,13 @@ public class ScoreDialogFragment extends DialogFragment {
                             JSONObject obj = new JSONObject(response);
                             Log.e("Obj is :", obj.toString());
 
-                            if(obj.has("score")) {
+                            if (obj.has("score")) {
                                 String scoreText = obj.get("score").toString();
                                 Log.e("Score is :", scoreText);
                                 score.setText(scoreText);
+                                shareScoreButton.setEnabled(true);
+                            } else {
+                                shareScoreButton.setEnabled(false);
                             }
                             //creating a match object and giving them the values from json object
                             score.setVisibility(VISIBLE);

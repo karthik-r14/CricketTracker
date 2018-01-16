@@ -39,14 +39,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="submit"/>
+            android:text="@string/submit"
+            android:background="@drawable/cric_trac_app_spinner_bg"/>
 
         <Button
             android:id="@+id/notnow_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="not now"/>
+            android:text="@string/not_now"
+            android:background="@drawable/cric_trac_app_spinner_bg"/>
 
 
     </LinearLayout>

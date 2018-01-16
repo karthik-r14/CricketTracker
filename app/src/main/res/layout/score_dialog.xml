@@ -56,11 +56,11 @@
             android:background="@drawable/cric_trac_app_spinner_bg"/>
 
         <Button
-            android:id="@+id/dismiss_button"
+            android:id="@+id/share_score_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="@string/dismiss"
+            android:text="@string/share_score"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:background="@drawable/cric_trac_app_spinner_bg"/>

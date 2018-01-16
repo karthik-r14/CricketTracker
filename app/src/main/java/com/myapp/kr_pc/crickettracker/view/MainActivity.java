@@ -13,10 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.myapp.kr_pc.crickettracker.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.myapp.kr_pc.crickettracker.R;
 
 import static android.widget.Toast.LENGTH_LONG;
 
@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
 
         Button liveScoreButton = findViewById(R.id.live_score_button);
         liveScoreButton.setOnClickListener(new View.OnClickListener() {
