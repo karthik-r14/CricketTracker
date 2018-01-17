@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("plain/text");
+                shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_message));
                 startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.share)));
                 return true;

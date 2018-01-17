@@ -88,7 +88,7 @@ public class ScoreDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("plain/text");
+                shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, score.getText().toString());
                 startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.share_score)));
             }
