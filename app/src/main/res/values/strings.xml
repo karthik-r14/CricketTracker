@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CricketTracker</string>
+    <string name="app_name">CricTracker</string>
     <string name="title_activity">Matches</string>
     <string name="action_settings">Settings</string>
     <string name="rate_us">Rate Us</string>
