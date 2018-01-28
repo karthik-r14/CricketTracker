@@ -30,9 +30,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:paddingLeft="30dp"
             android:text="@string/github_text"
-            android:paddingLeft="30dp"/>
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/github_handle"
@@ -52,9 +52,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:paddingLeft="30dp"
             android:text="@string/email_id"
-            android:paddingLeft="30dp"/>
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,4 +64,36 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/mentioning_cricapi"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:text="@string/reach_cricapi_text"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/cricapi_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/cric_api_link"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
 </LinearLayout>

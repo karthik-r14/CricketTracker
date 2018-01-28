@@ -51,7 +51,6 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerMajorTeams = findViewById(R.id.major_teams);
         playerProfile = findViewById(R.id.profile);
         playerProfileLayout = findViewById(R.id.player_profile_layout);
-
         loadPlayerProfile(getIntent().getExtras().getString("playerId"));
     }
 

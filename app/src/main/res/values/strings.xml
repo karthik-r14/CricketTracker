@@ -72,5 +72,8 @@
     <string name="score">SCORE</string>
     <string name="share_score">SHARE SCORE</string>
     <string name="not_now">not now</string>
+    <string name="mentioning_cricapi">Also, live score, player profile and fixtures data is supplied to the app using CricApi.</string>
+    <string name="cric_api_link">http://www.cricapi.com</string>
+    <string name="reach_cricapi_text">You can reach Crip Api using :</string>
     <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
 </resources>

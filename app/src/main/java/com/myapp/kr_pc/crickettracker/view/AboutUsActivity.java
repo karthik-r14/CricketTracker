@@ -17,6 +17,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
     TextView githubHandle;
     ImageView imageView;
+    TextView cricApiLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,20 @@ public class AboutUsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cricApiLink = findViewById(R.id.cricapi_link);
+        cricApiLink.setPaintFlags(cricApiLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        cricApiLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse(getResources().getString(R.string.cric_api_link));
+                Intent intent = new
+                        Intent(Intent.ACTION_VIEW, webpage);
+                startActivity(intent);
+            }
+        });
+
 
         imageView = findViewById(R.id.about_us_image);
         Picasso.with(AboutUsActivity.this)
