@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdView;
 import com.myapp.kr_pc.crickettracker.R;
 
 import static android.widget.Toast.LENGTH_LONG;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String MY_PROFILE = "my_profile";
     public static final String LOGGED_IN = "LoggedIn";
 
-    private AdView mAdView;
+//    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
