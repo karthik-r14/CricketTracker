@@ -66,7 +66,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
                     String player = playerName.getText().toString();
                     dismissKeyboard();
                     if (player.trim().isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Player name should not be empty", LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.empty_player_name_msg, LENGTH_LONG).show();
                     } else {
                         loadPlayerList(player);
                     }
