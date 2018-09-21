@@ -1,12 +1,14 @@
 package com.myapp.kr_pc.crickettracker.view;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -62,6 +64,7 @@ public class PlayerSearchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (connectivityAvailable()) {
                     String player = playerName.getText().toString();
+                    dismissKeyboard();
                     if (player.trim().isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Player name should not be empty", LENGTH_LONG).show();
                     } else {
@@ -89,6 +92,11 @@ public class PlayerSearchActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
             }
         });
+    }
+
+    private void dismissKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(playerName.getWindowToken(), 0);
     }
 
     private void loadPlayerList(String playerName) {
