@@ -76,5 +76,7 @@
     <string name="cric_api_link">http://www.cricapi.com</string>
     <string name="reach_cricapi_text">You can reach Cric Api using :</string>
     <string name="empty_player_name_msg">Player name should not be empty</string>
+    <string name="internet_connected_msg">Internet is Connected</string>
+    <string name="internet_disconnected_msg">Lost Internet Connection</string>
     <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
 </resources>
