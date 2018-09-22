@@ -86,10 +86,15 @@ public class PlayerSearchActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(PlayerSearchActivity.this, PlayerProfileActivity.class);
-                intent.putExtra("playerId", playerIdList.get(i).toString());
-                startActivity(intent);
-                overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+                if (!connectivityAvailable()) {
+                    Toast.makeText(getApplicationContext(), R.string.no_internet_message, LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent(PlayerSearchActivity.this, PlayerProfileActivity.class);
+                    intent.putExtra("playerId", playerIdList.get(i).toString());
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.move_left_anim, R.anim.move_right_anim);
+                }
+
             }
         });
     }
