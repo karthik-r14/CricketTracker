@@ -225,9 +225,9 @@ public class MainActivity extends AppCompatActivity {
     private void setSnackbarMessage(String status, boolean showBar) {
         String internetStatus = "";
         if (status.equalsIgnoreCase("Wifi enabled") || status.equalsIgnoreCase("Mobile data enabled")) {
-            internetStatus = getString(R.string.internet_connected_msg);
+            internetStatus = "Internet is Connected";
         } else {
-            internetStatus = getString(R.string.internet_disconnected_msg);
+            internetStatus = "Lost Internet Connection";
         }
         snackbar = Snackbar
                 .make(relativeLayout, internetStatus, Snackbar.LENGTH_LONG)
